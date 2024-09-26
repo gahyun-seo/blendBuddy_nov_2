@@ -1,8 +1,9 @@
-import 'package:blend_buddy/general/w_theme.dart';
 import 'package:flutter/material.dart';
 
-class DrinksRecordAppBar extends StatelessWidget {
-  const DrinksRecordAppBar({Key? key}) : super(key: key);
+import '../../general/w_theme.dart';
+
+class SettingsAppBar extends StatelessWidget {
+  const SettingsAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +16,14 @@ class DrinksRecordAppBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(
-                  Icons.arrow_back,
-                  color: Colors.black,
-                  size: 30,
-                )),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+                size: 30,
+              ),),
           ],
         ),
       ),

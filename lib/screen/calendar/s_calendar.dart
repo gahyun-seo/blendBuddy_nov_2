@@ -1,16 +1,12 @@
 import 'package:blend_buddy/general/w_theme.dart';
+import 'package:blend_buddy/screen/calendar/w_calendar_app_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:clip_shadowx/clip_shadowx.dart';
 
-import 'w_settings_app_bar.dart';
+class CalendarScreen extends StatelessWidget {
+  const CalendarScreen({super.key});
 
-class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key});
-
-  @override
-  State<SettingsPage> createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,11 +14,11 @@ class _SettingsPageState extends State<SettingsPage> {
         width: double.maxFinite,
         height: double.maxFinite,
         alignment: Alignment.center,
-        child: Text('settings screen'),
+        child: Text('calendar screen'),
       ),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
-        child: SettingsAppBar(),
+        child: CalendarAppBar(),
       ),
     );
   }

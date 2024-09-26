@@ -1,31 +1,30 @@
-import 'package:blend_buddy/general/drinkBox/w_theme.dart';
+import 'package:blend_buddy/general/w_theme.dart';
+import 'package:blend_buddy/screen/home/w_character_speech.dart';
 import 'package:flutter/material.dart';
+
+import 'myDrinksRecord/f_drinks_record.dart';
 
 class CharacterContainer extends StatelessWidget {
   const CharacterContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 259,
-      height: 259,
-      alignment: Alignment.center,
-      child: Container(
-        width: 259,
-        height: 259,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: mainColor,
-          shape: BoxShape.circle,
-        ),
-        child: Text(
-          '캐릭터',
-          style: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.w500,
-            color: Colors.white,
+    return Padding(
+      padding: EdgeInsets.only(top: 0, left: 20, right: 20),
+      child: Stack(
+        children: [
+          // character image
+          Container(
+            width: 350,
+            height: 350,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+              image: AssetImage('assets/image/fat_character.png'),
+            )),
           ),
-        ),
+          // character 말풍선
+          CharacterSpeech(),
+        ],
       ),
     );
   }

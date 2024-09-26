@@ -1,14 +1,15 @@
-import 'package:blend_buddy/general/drinkBox/w_theme.dart';
-import 'package:blend_buddy/screen/community/detail/nutrition/vo_nutrition.dart';
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../general/drinkBox/vo_drinks.dart';
 
 // 영양성분 표
 // 커뮤니티 페이지 디테일 뷰에 사용
 
 class NutritionTable extends StatelessWidget {
-  final Nutrition nutritionFacts;
+  final Drink drink;
 
-  const NutritionTable(this.nutritionFacts, {super.key});
+  const NutritionTable(this.drink, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +57,7 @@ class NutritionTable extends StatelessWidget {
                       width: 60,
                       padding: EdgeInsets.symmetric(horizontal: 10),
                       alignment: Alignment.centerLeft,
-                      child: Text(nutritionFacts.sodium.toString()),
+                      child: Text(drink.sodium.toString()),
                     ),
                   ),
                 ],
@@ -77,7 +78,7 @@ class NutritionTable extends StatelessWidget {
                         width: 60,
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         alignment: Alignment.centerLeft,
-                        child: Text(nutritionFacts.protein.toString())),
+                        child: Text(drink.protein.toString())),
                   ),
                 ],
               ),
@@ -97,7 +98,7 @@ class NutritionTable extends StatelessWidget {
                         width: 60,
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         alignment: Alignment.centerLeft,
-                        child: Text(nutritionFacts.saturatedFat.toString())),
+                        child: Text(drink.saturatedFat.toString())),
                   ),
                 ],
               ),
@@ -117,7 +118,7 @@ class NutritionTable extends StatelessWidget {
                         width: 60,
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         alignment: Alignment.centerLeft,
-                        child: Text(nutritionFacts.sugars.toString())),
+                        child: Text(drink.sugars.toString())),
                   ),
                 ],
               ),
@@ -137,7 +138,7 @@ class NutritionTable extends StatelessWidget {
                         width: 60,
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         alignment: Alignment.centerLeft,
-                        child: Text(nutritionFacts.caffeine.toString())),
+                        child: Text(drink.caffeine.toString())),
                   ),
                 ],
               ),
@@ -148,7 +149,7 @@ class NutritionTable extends StatelessWidget {
             padding: EdgeInsets.only(top: 10, right: 6, left: 6),
             alignment: Alignment.bottomRight,
             child: Text(
-              '총 열량 ${nutritionFacts.calories} kcal',
+              '총 열량 ${drink.calories} kcal',
               style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 20,

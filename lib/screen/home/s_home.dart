@@ -1,5 +1,7 @@
-import 'package:blend_buddy/screen/home/w_addDrinksButton.dart';
+import 'package:blend_buddy/screen/home/w_character_speech.dart';
 import 'package:blend_buddy/screen/home/w_character.dart';
+import 'package:blend_buddy/screen/home/w_drink_record.dart';
+import 'package:blend_buddy/screen/home/w_home_header.dart';
 import 'package:blend_buddy/screen/home/w_nutrition_status.dart';
 import 'package:flutter/material.dart';
 
@@ -19,32 +21,16 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         physics: AlwaysScrollableScrollPhysics(),
         padding: EdgeInsets.only(
-          top: 0,
+          top: 60,
           bottom: 0,
         ),
         child: Column(
           // mainAxisAlignment:,
           children: [
-            Container(
-              width: 393,
-              alignment: Alignment.center,
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 369, left: 11, right: 11),
-                    child: NutritionStatus(),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 126, left: 67, right: 67),
-                    child: CharacterContainer(),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 59, left: 225),
-                    child: AddTodayDrinksButton(),
-                  ),
-                ],
-              ),
-            ),
+            HomeHeader(),
+            CharacterContainer(),
+            NutritionStatus(),
+            DrinkRecordToday(),
             Picks(),
           ],
         ),
