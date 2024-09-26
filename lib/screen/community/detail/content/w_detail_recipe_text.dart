@@ -1,4 +1,4 @@
-import 'package:blend_buddy/general/drinkBox/w_theme.dart';
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:blend_buddy/screen/community/detail/vo_recipe_post.dart';
 import 'package:blend_buddy/screen/community/detail/recipe_post_dummy.dart';
 import 'package:flutter/material.dart';

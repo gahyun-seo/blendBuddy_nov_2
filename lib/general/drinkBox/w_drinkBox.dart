@@ -1,6 +1,8 @@
-import 'package:blend_buddy/general/drinkBox/w_theme.dart';
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import 'vo_drinks.dart';
 
@@ -15,84 +17,103 @@ class DrinkBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          width: 387,
-          height: 147,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              color: secondColor,
-              // border: Border.all(
-              // color: Colors.grey
-              // ),
-              borderRadius: BorderRadius.circular(0)),
-        ),
-        Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 10,
-                right: 10,
-                top: 10,
-                bottom: 10,
-              ),
-              child: Container(
-                width: 119,
-                height: 119,
-                decoration: BoxDecoration(
+    return Container(
+      width: 354,
+      height: 135,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: Container(
+              width: 104,
+              height: 104,
+              decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(drink.image),
-                  )
-                ),
-              ),
+                  ),
+                  borderRadius: BorderRadius.circular(15)),
             ),
-            Container(
-              width: 228,
-              height: 147,
-              padding: EdgeInsets.only(top: 20, bottom: 5, left: 5),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      '${drink.drinkName}',
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w900,
-                        color: thirdColor,
-                      ),
+          ),
+          Container(
+            width: 195,
+            height: 135,
+            padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+            alignment: Alignment.center,
+            child: Column(
+              children: [
+                Container(
+                  width: 195,
+                  padding: EdgeInsets.only(top: 10),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '${drink.drinkBrand}',
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                        fontSize: 8,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey),
+                  ),
+                ),
+                Container(
+                  width: 195,
+                  padding: EdgeInsets.only(top: 5),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '${drink.drinkName}',
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                      color: thirdColor,
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      '${drink.drinkBrand}',
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          color: thirdColor),
+                ),
+                Container(
+                  width: 195,
+                  padding: EdgeInsets.only(top: 10),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '포화지방 ${drink.saturatedFat}g 당류 ${drink.sugars}g 카페인 ${drink.caffeine}mg',
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: thirdColor,
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      '${drink.drinkInfo}',
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          color: thirdColor),
+                ),
+                Container(
+                  width: 195,
+                  padding: EdgeInsets.only(top: 5),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '${drink.calories} kcal (${drink.drinkSize})',
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      color: thirdColor,
                     ),
                   ),
-                ],
-              ),
-            )
-          ],
-        )
-      ],
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

@@ -11,3 +11,11 @@ Color get secondColor => Color(0xffD9D9D9);
 Color get thirdColor => Colors.black;
 // 아이콘 등에 종종 사용되는 색
 Color get iconGrey => Color(0xff999999);
+// 배경색
+Color get mainBackgroundColor => Color(0xfffDF9FA);
+
+Color get pink50 => Color(0xffFFE3EE);
+
+//Color get mainBackgroundColor => Color(0xfffDF9FA);
+
+//Color get mainBackgroundColor => Color(0xfffDF9FA);

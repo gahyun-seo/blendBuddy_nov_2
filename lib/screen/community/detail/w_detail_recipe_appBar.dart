@@ -1,3 +1,4 @@
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:flutter/material.dart';
 
 // 레시피 포스트 페이지의 앱바
@@ -9,7 +10,7 @@ class DetailRecipeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: mainBackgroundColor,
       body: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.only(top: 30, left: 15),

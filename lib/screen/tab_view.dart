@@ -1,5 +1,5 @@
 
-import 'package:blend_buddy/general/drinkBox/w_theme.dart';
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:blend_buddy/screen/community/main/s_community.dart';
 import 'package:blend_buddy/screen/home/myDrinksRecord/f_drinks_record.dart';
 import 'package:blend_buddy/screen/home/s_home.dart';
@@ -47,37 +47,42 @@ class _TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
         data: ThemeData(
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
+          scaffoldBackgroundColor: pink50,
         ),
-        child: SizedBox(
-          height: 83,
-          child: Column(
-            children: [
-              Divider(color: secondColor,),
-              BottomNavigationBar(
-                backgroundColor: Colors.white,
-                elevation: 0.0,
-                selectedItemColor: mainColor,
-                unselectedItemColor: iconGrey,
-                selectedLabelStyle: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 10,
+        child: Container(
+          height: 75,
+          color: pink50,
+          alignment: Alignment.center,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 7),
+            child: Column(
+              children: [
+                BottomNavigationBar(
+                  backgroundColor: pink50,
+                  elevation: 0.0,
+                  selectedItemColor: Colors.white,
+                  unselectedItemColor: mainColor,
+                  selectedLabelStyle: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                  ),
+                  unselectedLabelStyle: const TextStyle(
+                    fontSize: 10,
+                  ),
+                  type: BottomNavigationBarType.fixed,
+                  onTap: (int index) {
+                    _tabController.animateTo(index);
+                  },
+                  currentIndex: _index,
+                  items: _navItems.map((item) {
+                    return BottomNavigationBarItem(
+                      icon: Icon(_index == item.index ? item.activeIcon : item.inactiveIcon, size: 30),
+                      label: item.label,
+                    );
+                  }).toList(),
                 ),
-                unselectedLabelStyle: const TextStyle(
-                  fontSize: 10,
-                ),
-                type: BottomNavigationBarType.fixed,
-                onTap: (int index) {
-                  _tabController.animateTo(index);
-                },
-                currentIndex: _index,
-                items: _navItems.map((item) {
-                  return BottomNavigationBarItem(
-                    icon: Icon(_index == item.index ? item.activeIcon : item.inactiveIcon, size: 35),
-                    label: item.label,
-                  );
-                }).toList(),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -87,8 +92,7 @@ class _TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
         children: [
           HomePage(),
           CommunityPage(),
-          RecipesPage(),
-          SettingsPage()
+          DrinksRecordPage(),
         ],
       ),
     );
@@ -112,26 +116,20 @@ class NavItem {
 const _navItems = {
   NavItem(
     index: 0,
-    activeIcon: Icons.home_rounded,
-    inactiveIcon: Icons.home_rounded,
+    activeIcon: Icons.home,
+    inactiveIcon: Icons.home_outlined,
     label: '홈',
   ),
   NavItem(
     index: 1,
-    activeIcon: Icons.group,
-    inactiveIcon: Icons.group,
+    activeIcon: Icons.public,
+    inactiveIcon: Icons.public_outlined,
     label: '커뮤니티',
   ),
   NavItem(
     index: 2,
-    activeIcon: Icons.coffee,
-    inactiveIcon: Icons.coffee,
+    activeIcon: Icons.menu_book,
+    inactiveIcon: Icons.menu_book_outlined,
     label: '내 레시피',
-  ),
-  NavItem(
-    index: 3,
-    activeIcon: Icons.settings,
-    inactiveIcon: Icons.settings,
-    label: '설정',
   ),
 };

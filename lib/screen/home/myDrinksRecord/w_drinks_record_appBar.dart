@@ -1,3 +1,4 @@
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:flutter/material.dart';
 
 class DrinksRecordAppBar extends StatelessWidget {
@@ -6,7 +7,7 @@ class DrinksRecordAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: mainBackgroundColor,
       body: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.only(top: 30, left: 15),

@@ -1,4 +1,4 @@
-import 'package:blend_buddy/general/drinkBox/w_theme.dart';
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:blend_buddy/screen/community/detail/recipe_post_dummy.dart';
 import 'package:flutter/material.dart';
 
@@ -16,33 +16,36 @@ class DetailRecipeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 318,
-      height: 59,
-      child: Row(
-        children: [
-          ProfileImageButton(recipePost1),
-          SizedBox(width: 15,),
-          Container(
-            width: 244,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('${recipePost.userName}',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: thirdColor,
-                ),),
-                Text('${recipePost.uploadedDate}', style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 18,
-                  color: iconGrey,
-                ),)
-              ],
-            ),
-          )
-        ],
+    return Padding(
+      padding: EdgeInsets.only(left: 34, right: 34),
+      child: Container(
+        width: 318,
+        height: 59,
+        child: Row(
+          children: [
+            ProfileImageButton(recipePost1),
+            SizedBox(width: 15,),
+            Container(
+              width: 244,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('${recipePost.userName}',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: thirdColor,
+                  ),),
+                  Text('${recipePost.uploadedDate}', style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                    color: iconGrey,
+                  ),)
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -1,4 +1,4 @@
-import 'package:blend_buddy/general/drinkBox/w_theme.dart';
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:blend_buddy/screen/home/s_home.dart';
 import 'package:blend_buddy/screen/tab_view.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
           ),
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
           useMaterial3: true,
+          scaffoldBackgroundColor: mainBackgroundColor,
         ),
         home: TabView(),
     );

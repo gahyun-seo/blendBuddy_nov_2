@@ -1,7 +1,6 @@
 import 'package:blend_buddy/general/drinkBox/drinks_dummy.dart';
 import 'package:blend_buddy/general/drinkBox/w_drinkBox.dart';
-import 'package:blend_buddy/general/drinkBox/w_theme.dart';
-import 'package:blend_buddy/screen/community/detail/nutrition/nutrition_dummy.dart';
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:blend_buddy/screen/community/detail/nutrition/w_detail_recipe_drinkBox.dart';
 import 'package:blend_buddy/screen/community/detail/nutrition/w_nutrition_table.dart';
 import 'package:blend_buddy/screen/community/detail/recipe_post_dummy.dart';
@@ -37,23 +36,12 @@ class _DetailRecipePageState extends State<DetailRecipePage> {
         ),
         child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.only(left: 34, right: 34),
-              child: DetailRecipeHeader(recipePost1),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 20, left: 35, right: 35),
-              child: DetailRecipeContent(recipePost1),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20, left: 30, right: 30),
-              child: DetailRecipeDrinkBox(dolceColdBrew),
-            ),
+            DetailRecipeHeader(recipePost1),
+            DetailRecipeContent(recipePost1),
+            DetailRecipeDrinkBox(dolceColdBrew),
             SizedBox(height: 10,),
-            NutritionTable(nutritionSample),
-            SizedBox(
-              height: 30,
-            ),
+            NutritionTable(dolceColdBrew),
+            SizedBox(height: 30,),
           ],
         ),
       ),

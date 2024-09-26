@@ -1,4 +1,4 @@
-import 'package:blend_buddy/general/drinkBox/w_theme.dart';
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:blend_buddy/screen/community/main/w_user_image_button.dart';
 import 'package:flutter/material.dart';
 
@@ -25,14 +25,8 @@ class _CommunityPageState extends State<CommunityPage> {
             padding: EdgeInsets.only(top: 214, left: 16, right: 16),
             child: Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 4, right: 4),
-                  child: UserImageButton(),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 4, right: 4),
-                  child: UserImageButton(),
-                ),
+                UserImageButton(),
+                UserImageButton(),
               ],
             ),
           ),
