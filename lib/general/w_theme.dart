@@ -16,6 +16,12 @@ Color get mainBackgroundColor => Color(0xfffDF9FA);
 
 Color get pink50 => Color(0xffFFE3EE);
 
+
+//grey
+const grey = Color(0xffF1EDEE);
+
 //Color get mainBackgroundColor => Color(0xfffDF9FA);
 
 //Color get mainBackgroundColor => Color(0xfffDF9FA);
+
+
