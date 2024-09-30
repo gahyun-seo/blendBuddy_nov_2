@@ -76,7 +76,7 @@ class liquidClipper extends CustomClipper<Path> {
     var path = Path();
     path.moveTo(0.1*size.width, 0.5*size.height);
     path.lineTo(0.2*size.width, size.height);
-    path.lineTo(0.8*size.width, size.height - 0.1);
+    path.lineTo(0.8*size.width, size.height);
     path.lineTo(0.9*size.width, 0.5*size.height);
     path.quadraticBezierTo(0.75*size.width, 0.65*size.height, 0.5*size.width, 0.5*size.height);
     path.quadraticBezierTo(0.25*size.width, 0.35*size.height, 0.1*size.width, 0.5*size.height);
