@@ -4,9 +4,6 @@ import 'package:blend_buddy/screen/home/w_cups.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../../general/drinkBox/drinks_dummy.dart';
-import '../../general/drinkBox/w_drinkBox.dart';
-
 class NutritionStatus extends StatefulWidget {
   const NutritionStatus({super.key});
 

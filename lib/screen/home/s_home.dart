@@ -1,4 +1,3 @@
-import 'package:blend_buddy/screen/home/w_character_speech.dart';
 import 'package:blend_buddy/screen/home/w_character.dart';
 import 'package:blend_buddy/screen/home/w_drink_record.dart';
 import 'package:blend_buddy/screen/home/w_home_header.dart';

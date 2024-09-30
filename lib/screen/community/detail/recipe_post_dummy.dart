@@ -1,6 +1,5 @@
 import 'package:blend_buddy/screen/community/detail/vo_recipe_post.dart';
 
-import 'vo_recipe_post.dart';
 
 // 레시피포스팅의 샘플 더미 데이터
 

@@ -4,7 +4,7 @@ import 'package:blend_buddy/screen/home/myDrinksRecord/w_searchBar.dart';
 import 'package:flutter/material.dart';
 
 import '../../../general/drinkBox/w_drinkBox.dart';
-import '../w_character.dart';
+
 
 class DrinksRecordPage extends StatefulWidget {
   const DrinksRecordPage({Key? key}) : super(key: key);
