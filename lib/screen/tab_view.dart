@@ -1,41 +1,39 @@
 
-import 'package:blend_buddy/general/w_theme.dart';
+import 'package:blend_buddy/general/colorPalette.dart';
 import 'package:blend_buddy/screen/community/main/s_community.dart';
 import 'package:blend_buddy/screen/home/myDrinksRecord/f_drinks_record.dart';
 import 'package:blend_buddy/screen/home/s_home.dart';
-import 'package:blend_buddy/screen/recipes/s_recipes.dart';
 import 'package:flutter/material.dart';
 
-import 'settings/s_settings.dart';
 
 class TabView extends StatefulWidget {
   const TabView({super.key});
 
   @override
-  State<TabView> createState() => _TabViewState();
+  State<TabView> createState() => TabViewState();
 }
 
-class _TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
-  int _index = 0;
-  late TabController _tabController;
+class TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
+  int index = 0;
+  late TabController tabController;
 
   @override
   void initState() {
     super.initState();
 
-    _tabController = TabController(length: _navItems.length, vsync: this);
-    _tabController.addListener(tabListener);
+    tabController = TabController(length: _navItems.length, vsync: this);
+    tabController.addListener(tabListener);
   }
 
   @override
   void dispose() {
-    _tabController.removeListener(tabListener);
+    tabController.removeListener(tabListener);
     super.dispose();
   }
 
   void tabListener() {
     setState(() {
-      _index = _tabController.index;
+      index = tabController.index;
     });
   }
 
@@ -47,36 +45,59 @@ class _TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
         data: ThemeData(
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
-          scaffoldBackgroundColor: pink50,
         ),
         child: Container(
-          height: 75,
-          color: pink50,
+          height: 98,
+          //color: tabColor,
           alignment: Alignment.center,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 7),
-            child: Column(
-              children: [
+
+          child: Column(
+            children: [
                 BottomNavigationBar(
-                  backgroundColor: pink50,
-                  elevation: 0.0,
-                  selectedItemColor: Colors.white,
+
+                  backgroundColor: tabColor,
+                  selectedItemColor: mainColor,
                   unselectedItemColor: mainColor,
+                  selectedIconTheme: IconThemeData(
+                    color: Colors.white,
+                  ),
+                  unselectedIconTheme: IconThemeData(
+                    color: mainColor,
+                  ),
                   selectedLabelStyle: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 10,
+                    fontSize: 12.4,
                   ),
                   unselectedLabelStyle: const TextStyle(
-                    fontSize: 10,
+                    fontSize: 12.4,
                   ),
                   type: BottomNavigationBarType.fixed,
                   onTap: (int index) {
-                    _tabController.animateTo(index);
+                    tabController.animateTo(index);
                   },
-                  currentIndex: _index,
+                  currentIndex: index,
                   items: _navItems.map((item) {
                     return BottomNavigationBarItem(
-                      icon: Icon(_index == item.index ? item.activeIcon : item.inactiveIcon, size: 30),
+                      icon: Container(
+                        width: 61.05,
+                        height: 30.52,
+                        decoration: BoxDecoration(
+                          color: index == item.index ? pink300 : Colors.transparent,
+                          borderRadius: BorderRadius.circular(15.26),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              index == item.index ? item.activeIcon : item.inactiveIcon,
+                              size: 22.89,
+                            ),
+                            //SizedBox(height: 8),
+                            //Text(item.label, style: TextStyle(fontSize: 12.4)),
+                          ],
+                        ),
+                        //Icon(_index == item.index ? item.activeIcon : item.inactiveIcon, size: 30),
+                      ),
                       label: item.label,
                     );
                   }).toList(),
@@ -85,17 +106,18 @@ class _TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
             ),
           ),
         ),
-      ),
       body: TabBarView(
         physics: const NeverScrollableScrollPhysics(),
-        controller: _tabController,
-        children: [
+        controller: tabController,
+        children: const [
           HomePage(),
           CommunityPage(),
           DrinksRecordPage(),
-        ],
-      ),
-    );
+          ],
+        ),
+      );
+
+
   }
 }
 
@@ -113,7 +135,7 @@ class NavItem {
   });
 }
 
-const _navItems = {
+const List<NavItem> _navItems = [
   NavItem(
     index: 0,
     activeIcon: Icons.home,
@@ -132,4 +154,4 @@ const _navItems = {
     inactiveIcon: Icons.menu_book_outlined,
     label: '내 레시피',
   ),
-};
+];

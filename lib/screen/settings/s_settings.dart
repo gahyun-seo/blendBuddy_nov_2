@@ -1,4 +1,4 @@
-import 'package:blend_buddy/general/w_theme.dart';
+import 'package:blend_buddy/general/colorPalette.dart';
 import 'package:flutter/material.dart';
 
 import 'w_settings_app_bar.dart';

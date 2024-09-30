@@ -1,14 +1,11 @@
-import 'dart:math';
-
-import 'package:blend_buddy/general/w_theme.dart';
+import 'package:blend_buddy/general/colorPalette.dart'; // mainColor와 thirdColor를 사용하는 곳에서 필요한 임포트
 import 'package:flutter/material.dart';
 
 class AddTodayDrinkPage extends StatefulWidget {
   const AddTodayDrinkPage({super.key});
 
   @override
-  _AddTodayDrinkPageState createState() =>
-      _AddTodayDrinkPageState();
+  _AddTodayDrinkPageState createState() => _AddTodayDrinkPageState();
 }
 
 class _AddTodayDrinkPageState extends State<AddTodayDrinkPage> {
@@ -18,75 +15,116 @@ class _AddTodayDrinkPageState extends State<AddTodayDrinkPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('당 줄인 돌체 콜드 브루 v1'),
+        title: const Text(
+          '당 줄인 돌체 콜드 브루 v1',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
       ),
-      body: Stack(
-
+      body: Column(
         children: [
-          Container(
-            padding: EdgeInsets.all(20),
-            color: mainColor, // pink 를 mainColor로 theme에 추가
-            child: const Text("음료 사진 원래 화면 디자인 필요할 듯..."),
-          ),
-          DraggableScrollableSheet(
-            initialChildSize: 0.5,
-            maxChildSize: 1.0,
-            snap: true,
-            builder: (BuildContext context, ScrollController scrollController) {
-              return Container(
-                padding: const EdgeInsets.all(16),
-                decoration: const BoxDecoration(
-                  color: Color.fromRGBO(253, 249, 250, 1),
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-                  boxShadow: [BoxShadow(blurRadius: 10, color: Colors.black26)],
+          // 메인 이미지와 스크롤 가능한 부분을 분리
+          Expanded(
+            child: Stack(
+              children: [
+                // 메인 이미지
+                Container(
+                  padding: EdgeInsets.all(20),
+                  color: mainColor,
+                  child: Image.asset('assets/image/dolce_cold_brew.jpeg'), // 로컬 이미지 경로
                 ),
-                child: SingleChildScrollView(
-                  controller: scrollController,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(16),
+
+                // 아래로 드래그 가능한 시트
+                DraggableScrollableSheet(
+                  initialChildSize: 0.6,
+                  maxChildSize: 1.0,
+                  snap: true,
+                  builder: (BuildContext context, ScrollController scrollController) {
+                    return Container(
+                      padding: EdgeInsets.all(20),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+                        boxShadow: [BoxShadow(blurRadius: 10, color: Colors.black26)],
+                      ),
+                      child: SingleChildScrollView(
+                        controller: scrollController,
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('영양 정보', style: TextStyle(fontSize: 18, ), textAlign: TextAlign.left),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                _buildNutritionInfo('카페인', '155mg'),
-                                _buildNutritionInfo('포화지방', '9g'),
-                                _buildNutritionInfo('당류', '29g'),
-                              ],
+                            // 영양 정보 섹션
+                            Container(
+                              padding: const EdgeInsets.all(20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '영양 정보',
+                                    style: TextStyle(fontSize: 18),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(height: 30),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      _buildNutritionInfo('카페인', '155mg'),
+                                      _buildNutritionInfo('포화지방', '9g'),
+                                      _buildNutritionInfo('당류', '29g'),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 30),
+                                  Text(
+                                    '총 열량 236 kcal',
+                                    style: TextStyle(fontSize: 16, color: mainColor),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
                             ),
-                            const SizedBox(height: 30),
-                            Text('총 열량 236 kcal',
-                                style: TextStyle(
-                                    fontSize: 16, color: mainColor)),
+                            ListTile(
+                              title: const Text(
+                                '세부 설정',
+                                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                              trailing: IconButton(
+                                icon: Icon(isExpanded
+                                    ? Icons.keyboard_arrow_down_rounded
+                                    : Icons.keyboard_arrow_right),
+                                onPressed: () {
+                                  setState(() {
+                                    isExpanded = !isExpanded;
+                                  });
+                                },
+                              ),
+                            ),
+                            if (isExpanded) _buildCustomizationOptions(),
+                            SizedBox(height: 30),
                           ],
                         ),
                       ),
-                      ListTile(
-                        title:
-                        const Text('세부 설정', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                        trailing: IconButton(
-                          icon: Icon(isExpanded
-                              ? Icons.keyboard_arrow_down_rounded
-                              : Icons.keyboard_arrow_right),
-                          onPressed: () {
-                            setState(() {
-                              isExpanded = !isExpanded;
-                            });
-                          },
-                        ),
-                      ),
-                      if (isExpanded) _buildCustomizationOptions(),
-                    ],
-                  ),
+                    );
+                  },
                 ),
-              );
-            },
+              ],
+            ),
           ),
 
+          // 등록하기 버튼 (핑크색으로 변경)
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: ElevatedButton(
+              onPressed: () {
+                // 등록하기 버튼 동작
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: mainColor, // 버튼을 핑크색으로 설정
+                minimumSize: Size(double.infinity, 50), // 버튼 크기 설정
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
+              child: const Text('등록하기', style: TextStyle(fontSize: 18, color: Colors.white)),
+            ),
+          ),
         ],
       ),
     );
@@ -94,10 +132,16 @@ class _AddTodayDrinkPageState extends State<AddTodayDrinkPage> {
 
   Widget _buildNutritionInfo(String label, String value) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center, // 가운데 정렬
       children: [
-        Text(label,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-        Text(value, style: TextStyle(fontSize: 16)),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          value,
+          style: TextStyle(fontSize: 16),
+        ),
       ],
     );
   }
@@ -107,8 +151,8 @@ class _AddTodayDrinkPageState extends State<AddTodayDrinkPage> {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          _buildOptionContainer('토핑 선택'),
           _buildOptionContainer('사이즈 선택'),
+          _buildOptionContainer('토핑 선택'),
           _buildOptionContainer('커피 선택'),
           _buildOptionContainer('시럽 선택'),
           _buildOptionContainer('우유 선택'),
@@ -117,30 +161,50 @@ class _AddTodayDrinkPageState extends State<AddTodayDrinkPage> {
     );
   }
 
-  // 각각의 세부 설정 선택 박스
+  // 각각의 세부 설정 선택 박스 (회색 상자 추가)
   Widget _buildOptionContainer(String label) {
     return Container(
       margin: EdgeInsets.all(8.0),
       padding: EdgeInsets.all(16.0),
-      height: 247,
-      width: 359,
+      height: 247, // 높이 조정
+      width: 359, // 선택 박스 크기
       decoration: BoxDecoration(
         color: Color.fromRGBO(255, 255, 255, 1),
         borderRadius: BorderRadius.circular(17),
+        border: Border.all(color: mainColor, width: 2), // 테두리 색상과 굵기
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          Text(
+            label,
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
           SizedBox(height: 10),
-          // 더미 옵션, 여기에 실제 옵션 추가 가능
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(icon:  Icon(Icons.remove_circle, color: mainColor), onPressed: () {}),
-              const Text('0', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-              IconButton(icon: Icon(Icons.add_circle, color: mainColor), onPressed: () {}),
-            ],
+          // 회색 상자 추가 (세부 설정 안의 항목)
+          Container(
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.grey.shade200, // 회색 배경
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.remove_circle, color: mainColor),
+                  onPressed: () {},
+                ),
+                const Text(
+                  '0',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                IconButton(
+                  icon: Icon(Icons.add_circle, color: mainColor),
+                  onPressed: () {},
+                ),
+              ],
+            ),
           ),
         ],
       ),

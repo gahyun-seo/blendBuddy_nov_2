@@ -1,7 +1,7 @@
 import 'package:clip_shadowx/clip_shadowx.dart';
 import 'package:flutter/material.dart';
 
-import '../../general/w_theme.dart';
+import '../../general/colorPalette.dart';
 
 class CupWidget extends StatelessWidget {
   final double width;

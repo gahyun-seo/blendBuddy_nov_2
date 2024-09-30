@@ -1,9 +1,7 @@
 import 'package:blend_buddy/general/drinkBox/drinks_dummy.dart';
 import 'package:blend_buddy/general/drinkBox/w_drinkBox.dart';
-import 'package:blend_buddy/general/w_theme.dart';
+import 'package:blend_buddy/general/colorPalette.dart';
 import 'package:flutter/material.dart';
-
-import '../../general/drinkBox/vo_drinks.dart';
 
 class Picks extends StatefulWidget {
   const Picks({super.key});
@@ -16,13 +14,13 @@ class _PicksState extends State<Picks> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 350,
+
       child: Column(
+
         children: [
           Container(
-            width: 350,
-            height: 48,
-            padding: EdgeInsets.only(left: 5),
+
+            padding: EdgeInsets.only(left: 30, bottom: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -41,6 +39,7 @@ class _PicksState extends State<Picks> {
                     color: mainColor,
                   ),
                 ),
+
                 Container(
                   width: 21,
                   height: 21,

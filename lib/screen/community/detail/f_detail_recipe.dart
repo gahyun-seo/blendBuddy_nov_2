@@ -1,6 +1,6 @@
 import 'package:blend_buddy/general/drinkBox/drinks_dummy.dart';
 import 'package:blend_buddy/general/drinkBox/w_drinkBox.dart';
-import 'package:blend_buddy/general/w_theme.dart';
+import 'package:blend_buddy/general/colorPalette.dart';
 import 'package:blend_buddy/screen/community/detail/nutrition/w_detail_recipe_drinkBox.dart';
 import 'package:blend_buddy/screen/community/detail/nutrition/w_nutrition_table.dart';
 import 'package:blend_buddy/screen/community/detail/recipe_post_dummy.dart';

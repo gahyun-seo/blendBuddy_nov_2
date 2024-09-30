@@ -1,4 +1,4 @@
-import 'package:blend_buddy/general/w_theme.dart';
+import 'package:blend_buddy/general/colorPalette.dart';
 import 'package:flutter/material.dart';
 
 // 레시피 포스트 페이지의 앱바

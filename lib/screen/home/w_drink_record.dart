@@ -1,10 +1,13 @@
-import 'package:blend_buddy/general/w_theme.dart';
+
+import 'package:blend_buddy/general/colorPalette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../general/drinkBox/drinks_dummy.dart';
 import '../../general/drinkBox/w_drinkBox.dart';
 import 'myDrinksRecord/f_drinks_record.dart';
+
+
 
 class DrinkRecordToday extends StatelessWidget {
   const DrinkRecordToday({super.key});
@@ -14,7 +17,7 @@ class DrinkRecordToday extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.only(
-        bottom: 20,
+        bottom: 10,
       ),
       child: Column(
         children: [
@@ -23,14 +26,14 @@ class DrinkRecordToday extends StatelessWidget {
               // context
               Container(
                 padding: EdgeInsets.only(top: 10),
-                height: 200.0,
+                height: 188.6,
                 //margin: EdgeInsets.symmetric(horizontal: 14),
                 child: DrinkRecordTodayContent()),
               DrinkRecordTodayTitle(),
             ],
           ),
           SizedBox(
-            height: 5,
+            height: 3,
           ),
           StatusBar(),
         ],
@@ -94,8 +97,8 @@ class DrinkRecordTodayTitle extends StatelessWidget {
             ),
           ),
           Container(
-            width: 20,
-            height: 20,
+            width: 29.7,
+            height: 20.99,
             child: IconButton(
               onPressed: () {
                 Navigator.push(
@@ -127,7 +130,6 @@ class DrinkRecordTodayContent extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       children: [
         Container(
-          height: 135,
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Row(children: [
             DrinkBox(dolceColdBrew),

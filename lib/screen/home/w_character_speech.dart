@@ -2,7 +2,7 @@ import 'package:blend_buddy/screen/home/myDrinksRecord/f_drinks_record.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../general/w_theme.dart';
+import '../../general/colorPalette.dart';
 
 class CharacterSpeech extends StatelessWidget {
   const CharacterSpeech({super.key});

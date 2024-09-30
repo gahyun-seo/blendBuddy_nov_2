@@ -1,7 +1,7 @@
 import 'package:blend_buddy/screen/community/detail/vo_recipe_post.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../general/w_theme.dart';
+import '../../../../general/colorPalette.dart';
 
 // 커뮤니티 레시피 포스팅의 음료를 내 음료로 추가할 수 있는 버튼
 

@@ -1,4 +1,4 @@
-import 'package:blend_buddy/general/w_theme.dart';
+import 'package:blend_buddy/general/colorPalette.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../general/drinkBox/vo_drinks.dart';

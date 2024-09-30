@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../general/w_theme.dart';
+import '../../../general/colorPalette.dart';
 import '../detail/f_detail_recipe.dart';
 
 class UserImageButton extends StatelessWidget {

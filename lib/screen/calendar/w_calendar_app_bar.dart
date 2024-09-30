@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../general/w_theme.dart';
+import '../../general/colorPalette.dart';
 
 class CalendarAppBar extends StatelessWidget {
   const CalendarAppBar({super.key});

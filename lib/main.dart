@@ -1,7 +1,7 @@
-import 'package:blend_buddy/general/w_theme.dart';
-import 'package:blend_buddy/screen/home/s_home.dart';
 import 'package:blend_buddy/screen/tab_view.dart';
 import 'package:flutter/material.dart';
+
+import 'general/colorPalette.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,16 +17,15 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor: thirdColor,
+            backgroundColor: mainColor,
             foregroundColor: Colors.white,
             elevation: 0,
           ),
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+          colorScheme: ColorScheme.fromSeed(seedColor: mainColor),
           useMaterial3: true,
-          scaffoldBackgroundColor: mainBackgroundColor,
+          //scaffoldBackgroundColor: Colors.pink,
         ),
-        home: TabView(),
+        home: const TabView(),
     );
   }
 }
-// 깃허브 테스트 1

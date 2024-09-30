@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import 'w_theme.dart';
+import 'colorPalette.dart';
 
 class TextButtonBox extends StatelessWidget {
   final String text;
