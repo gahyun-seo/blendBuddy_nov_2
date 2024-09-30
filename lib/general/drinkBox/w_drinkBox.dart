@@ -1,5 +1,5 @@
 import 'package:blend_buddy/general/drinkBox/w_add_today_drink.dart';
-import 'package:blend_buddy/general/colorPalette.dart';
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:flutter/material.dart';
 import 'vo_drinks.dart';
 
@@ -48,7 +48,7 @@ class DrinkBox extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),
                   image: DecorationImage(
                     image: AssetImage(drink.image),
-                    fit: BoxFit.cover,
+                    //fit: BoxFit.cover,
                   ),
                 ),
               ),

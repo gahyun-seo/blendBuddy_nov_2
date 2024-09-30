@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:blend_buddy/general/colorPalette.dart';
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:blend_buddy/screen/calendar/s_calendar.dart';
 import 'package:blend_buddy/screen/settings/s_settings.dart';
 import 'package:flutter/cupertino.dart';

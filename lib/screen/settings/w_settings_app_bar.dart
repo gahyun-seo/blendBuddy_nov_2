@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../general/colorPalette.dart';
+import '../../general/w_theme.dart';
 
 class SettingsAppBar extends StatelessWidget {
   const SettingsAppBar({super.key});

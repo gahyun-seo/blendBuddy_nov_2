@@ -1,4 +1,4 @@
-import 'package:blend_buddy/general/colorPalette.dart';
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:blend_buddy/general/text_button_box.dart';
 import 'package:blend_buddy/screen/home/w_cups.dart';
 import 'package:flutter/material.dart';

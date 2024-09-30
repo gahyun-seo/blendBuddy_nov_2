@@ -1,5 +1,5 @@
 
-import 'package:blend_buddy/general/colorPalette.dart';
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:blend_buddy/screen/community/main/s_community.dart';
 import 'package:blend_buddy/screen/home/myDrinksRecord/f_drinks_record.dart';
 import 'package:blend_buddy/screen/home/s_home.dart';

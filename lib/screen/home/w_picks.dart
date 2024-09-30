@@ -1,6 +1,6 @@
 import 'package:blend_buddy/general/drinkBox/drinks_dummy.dart';
 import 'package:blend_buddy/general/drinkBox/w_drinkBox.dart';
-import 'package:blend_buddy/general/colorPalette.dart';
+import 'package:blend_buddy/general/w_theme.dart';
 import 'package:flutter/material.dart';
 
 class Picks extends StatefulWidget {

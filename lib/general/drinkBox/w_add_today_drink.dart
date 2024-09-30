@@ -1,4 +1,4 @@
-import 'package:blend_buddy/general/colorPalette.dart'; // mainColor와 thirdColor를 사용하는 곳에서 필요한 임포트
+import 'package:blend_buddy/general/w_theme.dart'; // mainColor와 thirdColor를 사용하는 곳에서 필요한 임포트
 import 'package:flutter/material.dart';
 
 class AddTodayDrinkPage extends StatefulWidget {

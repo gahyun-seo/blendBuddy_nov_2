@@ -1,7 +1,7 @@
 import 'package:blend_buddy/screen/tab_view.dart';
 import 'package:flutter/material.dart';
 
-import 'general/colorPalette.dart';
+import 'general/w_theme.dart';
 
 void main() {
   runApp(const MyApp());
