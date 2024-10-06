@@ -1,4 +1,3 @@
-import 'package:blend_buddy/screen/community/detail/vo_recipe_post.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../general/w_theme.dart';

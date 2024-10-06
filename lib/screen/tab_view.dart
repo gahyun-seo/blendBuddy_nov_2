@@ -1,8 +1,9 @@
 
 import 'package:blend_buddy/general/w_theme.dart';
 import 'package:blend_buddy/screen/community/main/s_community.dart';
-import 'package:blend_buddy/screen/home/myDrinksRecord/f_drinks_record.dart';
+import 'package:blend_buddy/screen/home/myRecipes/f_drinks_record.dart';
 import 'package:blend_buddy/screen/home/s_home.dart';
+import 'package:blend_buddy/screen/recipes/s_recipes.dart';
 import 'package:flutter/material.dart';
 
 
@@ -112,7 +113,7 @@ class TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
         children: const [
           HomePage(),
           CommunityPage(),
-          DrinksRecordPage(),
+          RecipesPage(),
           ],
         ),
       );

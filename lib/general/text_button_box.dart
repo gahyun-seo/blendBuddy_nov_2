@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart';
-import 'w_theme.dart';
 
 class TextButtonBox extends StatelessWidget {
   final String text;
@@ -9,6 +7,8 @@ class TextButtonBox extends StatelessWidget {
   final Color textColor;
   final Color backgroundColor;
   final double fontSize;
+  final FontWeight fontWeight;
+  final VoidCallback? onPressed;
 
   const TextButtonBox({
     required this.text,
@@ -17,7 +17,8 @@ class TextButtonBox extends StatelessWidget {
     required this.height,
     required this.textColor,
     required this.backgroundColor,
-    required this.fontSize,
+    required this.fontSize, required this.fontWeight,
+    this.onPressed
   });
 
   @override
@@ -26,7 +27,7 @@ class TextButtonBox extends StatelessWidget {
       width: width,
       height: height,
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: ButtonStyle(
           padding:
               MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(0)),
@@ -42,7 +43,7 @@ class TextButtonBox extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            fontWeight: FontWeight.w700,
+            fontWeight: fontWeight,
             fontSize: fontSize,
           ),
           textAlign: TextAlign.center,

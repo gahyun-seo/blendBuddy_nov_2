@@ -1,8 +1,9 @@
 import 'package:blend_buddy/general/w_theme.dart';
 import 'package:blend_buddy/general/text_button_box.dart';
+import 'package:blend_buddy/screen/home/todaysConsumedDrinks/todays_consumed_drink_list.dart';
 import 'package:blend_buddy/screen/home/w_cups.dart';
 import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart';
+import 'package:provider/provider.dart';
 
 class NutritionStatus extends StatefulWidget {
   const NutritionStatus({super.key});
@@ -12,6 +13,31 @@ class NutritionStatus extends StatefulWidget {
 }
 
 class _NutritionStatusState extends State<NutritionStatus> {
+
+  int recommendedSaturatedFat = 15;
+  int recommendedCaffeine = 400;
+  int recommendedSugars = 100;
+
+  // 오늘의 전체 섭취 성분
+  int totalCalories = 0;
+  int totalSaturatedFat = 0;
+  int totalCaffeine = 0;
+  int totalSugars = 0;
+  
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    // 오늘의 음료 리스트를 가져와서, 오늘의 섭취 성분 계산하기
+    final drinkList = Provider.of<TodaysConsumedDrinkList>(context);
+    setState(() {
+      totalCalories = drinkList.drinks.fold(0, (sum, drink) => sum + drink.calories);
+      totalSaturatedFat = drinkList.drinks.fold(0, (sum, drink) => sum + drink.saturatedFat.toInt());
+      totalCaffeine = drinkList.drinks.fold(0, (sum, drink) => sum + drink.caffeine.toInt());
+      totalSugars = drinkList.drinks.fold(0, (sum, drink) => sum + drink.sugars.toInt());
+    });
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,13 +61,15 @@ class _NutritionStatusState extends State<NutritionStatus> {
                     ),
                   ),
                   TextButtonBox(
-                    text: '236kcal',
+                    text: '$totalCalories kcal',
                     // MARK: 오늘 마신 음료 데이터에서 가져와야함
                     width: 106,
                     height: 32,
                     textColor: Colors.white,
                     backgroundColor: mainColor,
                     fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    onPressed: () {},
                   ),
                   Container(
                     alignment: Alignment.centerLeft,
@@ -65,17 +93,19 @@ class _NutritionStatusState extends State<NutritionStatus> {
                         width: 80,
                         height: 90,
                         backgroundColor: brown800,
+                        proportion: totalCaffeine / recommendedCaffeine,
                       ),
                       CupTitle(
-                        color: brown800,
+                        color: totalCaffeine / recommendedCaffeine < 0.8 ? brown800: Colors.white ,
                         width: 80,
                         title: '카페인',
                       ),
                       CupText(
                         width: 80,
                         height: 90,
-                        text: '155mg', // MARK: 이후 데이터에서 끌어오기
+                        text: '${totalCaffeine}mg', // MARK: 이후 데이터에서 끌어오기
                         fontSize: 14,
+                        color: totalCaffeine / recommendedCaffeine < 0.3 ? brown800: Colors.white ,
                       )
                     ]),
                   ),
@@ -86,17 +116,19 @@ class _NutritionStatusState extends State<NutritionStatus> {
                         width: 100,
                         height: 120,
                         backgroundColor: mainColor,
+                        proportion: totalSaturatedFat / recommendedSaturatedFat,
                       ),
                       CupTitle(
-                        color: mainColor,
+                        color: totalSaturatedFat / recommendedSaturatedFat < 0.8 ? mainColor: Colors.white,
                         width: 100,
                         title: '포화지방',
                       ),
                       CupText(
                         width: 100,
                         height: 120,
-                        text: '9g', // MARK: 이후 데이터에서 끌어오기
+                        text: '${totalSaturatedFat}g', // MARK: 이후 데이터에서 끌어오기
                         fontSize: 16,
+                        color: totalSaturatedFat / recommendedSaturatedFat < 0.3 ? mainColor: Colors.white,
                       )
                     ],
                   ),
@@ -109,17 +141,19 @@ class _NutritionStatusState extends State<NutritionStatus> {
                           width: 80,
                           height: 90,
                           backgroundColor: yellow300,
+                          proportion: totalSugars / recommendedSugars,
                         ),
                         CupTitle(
-                          color: yellow300,
+                          color: totalSugars / recommendedSugars < 0.8 ? yellow300: Colors.white,
                           width: 80,
                           title: '당류',
                         ),
                         CupText(
                           width: 80,
                           height: 90,
-                          text: '29g',
+                          text: '${totalSugars}g',
                           fontSize: 14,// MARK: 이후 데이터에서 끌어오기
+                          color: totalSugars / recommendedSugars < 0.3 ? yellow300: Colors.white,
                         )
                       ],
                     ),
@@ -169,12 +203,13 @@ class CupText extends StatelessWidget {
   final String text;
   final double fontSize;
   final double padding = 5.3;
+  final Color color;
 
   const CupText(
       {super.key,
       required this.width,
       required this.height,
-      required this.text, required this.fontSize});
+      required this.text, required this.fontSize, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -187,7 +222,7 @@ class CupText extends StatelessWidget {
           style: TextStyle(
             fontSize: fontSize,
             fontWeight: FontWeight.w300,
-            color: Colors.white,
+            color: color,
           )),
     );
   }

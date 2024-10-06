@@ -1,6 +1,6 @@
 import 'package:blend_buddy/general/drinkBox/drinks_dummy.dart';
-import 'package:blend_buddy/screen/home/myDrinksRecord/w_drinks_record_appBar.dart';
-import 'package:blend_buddy/screen/home/myDrinksRecord/w_searchBar.dart';
+import 'package:blend_buddy/screen/home/myRecipes//w_drinks_record_appBar.dart';
+import 'package:blend_buddy/screen/home/myRecipes//w_searchBar.dart';
 import 'package:flutter/material.dart';
 
 import '../../../general/drinkBox/w_drinkBox.dart';

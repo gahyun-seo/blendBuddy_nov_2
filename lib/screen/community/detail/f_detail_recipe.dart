@@ -1,12 +1,9 @@
 import 'package:blend_buddy/general/drinkBox/drinks_dummy.dart';
-import 'package:blend_buddy/general/drinkBox/w_drinkBox.dart';
-import 'package:blend_buddy/general/w_theme.dart';
 import 'package:blend_buddy/screen/community/detail/nutrition/w_detail_recipe_drinkBox.dart';
 import 'package:blend_buddy/screen/community/detail/nutrition/w_nutrition_table.dart';
 import 'package:blend_buddy/screen/community/detail/recipe_post_dummy.dart';
 import 'package:blend_buddy/screen/community/detail/w_detail_recipe_appBar.dart';
 import 'package:blend_buddy/screen/community/detail/content/w_detail_recipe_content.dart';
-import 'package:blend_buddy/screen/community/detail/header/w_profile_image_button.dart';
 import 'package:flutter/material.dart';
 
 import 'header/w_detail_recipe_header.dart';

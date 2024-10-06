@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 
 import '../../general/drinkBox/drinks_dummy.dart';
 import '../../general/drinkBox/w_drinkBox.dart';
-import 'myDrinksRecord/f_drinks_record.dart';
+import 'myRecipes/f_drinks_record.dart';
+//
+//   현재 미사용 페이지
+//
 
 
 

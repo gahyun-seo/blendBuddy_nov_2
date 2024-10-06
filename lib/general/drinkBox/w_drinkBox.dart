@@ -5,7 +5,6 @@ import 'vo_drinks.dart';
 
 // 음료 박스
 // 홈페이지, 음료 추가 페이지 등에서 사용
-// 더미 데이터와 클래스로 처리해놨으나 map 미사용 -> 해결해야함
 
 class DrinkBox extends StatelessWidget {
   final Drink drink;
@@ -19,7 +18,7 @@ class DrinkBox extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const AddTodayDrinkPage()
+            builder: (context) => AddTodayDrinkPage(drink: drink)
           ),
         );
       },
@@ -44,6 +43,8 @@ class DrinkBox extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(15),
               child: Container(
+                width: 100,
+                height: 100,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   image: DecorationImage(

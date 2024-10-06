@@ -1,4 +1,3 @@
-import 'package:blend_buddy/general/w_theme.dart';
 import 'package:blend_buddy/screen/community/detail/content/w_add_button.dart';
 import 'package:blend_buddy/screen/community/detail/content/w_detail_recipe_likes.dart';
 import 'package:blend_buddy/screen/community/detail/content/w_detail_recipe_text.dart';

@@ -1,8 +1,14 @@
+import 'package:blend_buddy/general/drinkBox/vo_drinks.dart';
 import 'package:blend_buddy/general/w_theme.dart'; // mainColor와 thirdColor를 사용하는 곳에서 필요한 임포트
 import 'package:flutter/material.dart';
 
+// 1001 가현 수정: 선택된 음료의 데이터가 나오게 변경
+
 class AddTodayDrinkPage extends StatefulWidget {
-  const AddTodayDrinkPage({super.key});
+
+  final Drink drink;
+
+  AddTodayDrinkPage({super.key, required this.drink});
 
   @override
   _AddTodayDrinkPageState createState() => _AddTodayDrinkPageState();
@@ -15,9 +21,15 @@ class _AddTodayDrinkPageState extends State<AddTodayDrinkPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          '당 줄인 돌체 콜드 브루 v1',
+        title: Text(
+          '${widget.drink.drinkName}',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // 현재 페이지를 팝하여 이전 페이지로 돌아간다
+          },
         ),
       ),
       body: Column(
@@ -28,9 +40,12 @@ class _AddTodayDrinkPageState extends State<AddTodayDrinkPage> {
               children: [
                 // 메인 이미지
                 Container(
-                  padding: EdgeInsets.all(20),
-                  color: mainColor,
-                  child: Image.asset('assets/image/dolce_cold_brew.jpeg'), // 로컬 이미지 경로
+                  width: double.maxFinite,
+                  height: double.maxFinite,
+                  //padding: EdgeInsets.all(20),
+                  color: Colors.black,
+                  alignment: Alignment.topCenter,
+                  child: Image.asset(widget.drink.image), // 로컬 이미지 경로
                 ),
 
                 // 아래로 드래그 가능한 시트
@@ -66,9 +81,9 @@ class _AddTodayDrinkPageState extends State<AddTodayDrinkPage> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     children: [
-                                      _buildNutritionInfo('카페인', '155mg'),
-                                      _buildNutritionInfo('포화지방', '9g'),
-                                      _buildNutritionInfo('당류', '29g'),
+                                      _buildNutritionInfo('카페인', '${widget.drink.caffeine}'),
+                                      _buildNutritionInfo('포화지방', '${widget.drink.saturatedFat}'),
+                                      _buildNutritionInfo('당류', '${widget.drink.sugars}'),
                                     ],
                                   ),
                                   const SizedBox(height: 30),
@@ -114,6 +129,8 @@ class _AddTodayDrinkPageState extends State<AddTodayDrinkPage> {
             child: ElevatedButton(
               onPressed: () {
                 // 등록하기 버튼 동작
+                // 등록하기 클릭 시 '오늘 마신 음료' 리스트에 추가되고 홈 화면에서 음료를 확인할 수 있다.
+                Navigator.pop(context, widget.drink);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: mainColor, // 버튼을 핑크색으로 설정

@@ -1,3 +1,4 @@
+import 'package:blend_buddy/screen/home/todaysConsumedDrinks/todays_consumed_drinks_page.dart';
 import 'package:blend_buddy/screen/home/w_character.dart';
 import 'package:blend_buddy/screen/home/w_drink_record.dart';
 import 'package:blend_buddy/screen/home/w_home_header.dart';
@@ -29,7 +30,7 @@ class _HomePageState extends State<HomePage> {
             HomeHeader(),
             CharacterContainer(),
             NutritionStatus(),
-            DrinkRecordToday(),
+            TodaysConsumedDrinksFragment(),
             Picks(),
           ],
         ),
